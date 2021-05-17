@@ -204,10 +204,8 @@ public class SwiftPlayifyPlugin: NSObject, FlutterPlugin {
                     //If the album with a name does not exist or the name is the same but the artist's name
                     //is different, get the album cover.
                     if(!albumExists || (albumExists && albumExistsArtistName != metadata.artist)){
-                        let image = metadata.artwork?.image(at: CGSize(width: size.intValue, height: size.intValue))
+                        let resizedImage = metadata.artwork?.image(at: CGSize(width: size.intValue, height: size.intValue))
                         
-                        //Resize image since there is an issue with getting the album cover with the desired size
-                        let resizedImage = (image != nil) ? resizeImage(image: image!, targetSize: CGSize(width: size.intValue, height: size.intValue)) : nil
 
                         //Convert image to Uint8 Array to send to Flutter (Taken from https://stackoverflow.com/a/29734526)
                         let imgdata = resizedImage?.jpegData(compressionQuality: 0.85)
