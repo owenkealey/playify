@@ -8,5 +8,5 @@ import Foundation
 import playify
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
-  SwiftPlayifyPlugin.register(with: registry.registrar(forPlugin: "SwiftPlayifyPlugin"))
+  PlayifyPlugin.register(with: registry.registrar(forPlugin: "PlayifyPlugin"))
 }

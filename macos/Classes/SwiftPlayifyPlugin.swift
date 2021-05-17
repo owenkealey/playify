@@ -1,4 +1,4 @@
-import Flutter
+import FlutterMacOS
 import UIKit
 import MediaPlayer
 

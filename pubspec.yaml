@@ -34,7 +34,7 @@ flutter:
       ios:
         pluginClass: PlayifyPlugin
       macos:
-        pluginClass: SwiftPlayifyPlugin
+        pluginClass: PlayifyPlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
