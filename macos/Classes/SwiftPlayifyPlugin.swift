@@ -165,15 +165,10 @@ public class SwiftPlayifyPlugin: NSObject, FlutterPlugin {
                     return
                 }
                 // yuh
-                let resizedImage = metadata.artwork?.image(at: CGSize(width: size.intValue, height: size.intValue))
                                 
-                //Convert image to Uint8 Array to send to Flutter (Taken from https://stackoverflow.com/a/29734526)
-                let imgdata = resizedImage?.jpegData(compressionQuality: 1.0)
 
                 
-                var data = metadata.toDict()
-                data["image"] = imgdata ?? []
-                
+                var data = metadata.toDict()                
                 result(data)
             }
             else if(call.method == "getAllSongs"){
@@ -201,22 +196,8 @@ public class SwiftPlayifyPlugin: NSObject, FlutterPlugin {
                             albumExistsArtistName = album["artistName"] ?? ""
                         }
                     }
-                    //If the album with a name does not exist or the name is the same but the artist's name
-                    //is different, get the album cover.
-                    if(!albumExists || (albumExists && albumExistsArtistName != metadata.artist)){
-                        let resizedImage = metadata.artwork?.image(at: CGSize(width: size.intValue, height: size.intValue))
-                        
+                        mysongs.append(songDict)
 
-                        //Convert image to Uint8 Array to send to Flutter (Taken from https://stackoverflow.com/a/29734526)
-                        let imgdata = resizedImage?.jpegData(compressionQuality: 0.85)
-                        
-                        songDict["image"] = imgdata ?? []
-                        mysongs.append(songDict)
-                        albums.append(["albumTitle": metadata.albumTitle ?? "", "artistName": metadata.artist ?? ""])
-                    }
-                    else {
-                        mysongs.append(songDict)
-                    }
                 }
                 result(mysongs)
             }
