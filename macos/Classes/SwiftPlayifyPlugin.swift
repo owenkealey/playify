@@ -164,7 +164,7 @@ public class SwiftPlayifyPlugin: NSObject, FlutterPlugin {
                     result(FlutterError(code: "songError", message: "Current Song Error", details: "An error occured while getting the current song playing!"))
                     return
                 }
-                
+                // yuh
                 let resizedImage = metadata.artwork?.image(at: CGSize(width: size.intValue, height: size.intValue))
                                 
                 //Convert image to Uint8 Array to send to Flutter (Taken from https://stackoverflow.com/a/29734526)
