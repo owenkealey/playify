@@ -1,5 +1,6 @@
 import FlutterMacOS
-import UIKit
+import AppKit
+import Cocoa
 import MediaPlayer
 
 public class SwiftPlayifyPlugin: NSObject, FlutterPlugin {
